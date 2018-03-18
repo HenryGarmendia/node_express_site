@@ -2,23 +2,20 @@ let express = require('express');
 let router = express.Router();
 
 router.get('/contributors', (req, res) => {
-    let info = '';
-    let dataFile = req.app.get('appData');
-    dataFile.contributors.forEach( (item) => {
-        info += `
-            <li>
-                <h2>${item.name}</h2>
-                <img src="/images/contributors/${item.shortname}_tn.png" alt="Contributors" />
-                <p>${item.summary}</p>
-            </li>
-        `;
+    let data = req.app.get('appData');
+    let pagePhotos = [];
+    let pageContributors = data.contributors;
+
+    data.contributors.forEach( (item) => {
+        pagePhotos = pagePhotos.concat(item.artwork);
     });
-    res.send(`
-        <link rel="stylesheet" type="text/css" href="/css/app.css"/>
-        <h1>Contributors</h1>
-        ${info}
-        <script src="/reload/reload.js"></script>
-    `);
+    
+    res.render('contributors', {
+        pageTitle: 'Contributors',
+        artwork: pagePhotos,
+        contributors: pageContributors,
+        pageID: 'contributors'
+    });
 });
 
 router.get('/contributors/:contributorid', (req, res) => {
