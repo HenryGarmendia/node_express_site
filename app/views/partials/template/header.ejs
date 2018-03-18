@@ -22,6 +22,9 @@
                 <ul class="dropdown-menu">
                     <li><a href="/contributors">All Contributors</a></li>
                     <li role="separator" class="divider"></li>
+                    <% allContributors.forEach( (item) => { %>
+                        <li><a href="/contributors/<%= item.shortname %>"><%= item.name %></a></li>
+                    <% }); %>
                 </ul>
             </li>
             </ul><!-- nav -->

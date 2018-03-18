@@ -14,21 +14,28 @@ router.get('/contributors', (req, res) => {
         pageTitle: 'Contributors',
         artwork: pagePhotos,
         contributors: pageContributors,
-        pageID: 'contributors'
+        pageID: 'contributorList'
     });
 });
 
 router.get('/contributors/:contributorid', (req, res) => {
-    let dataFile = req.app.get('appData');
-    let contributor = dataFile.contributors[req.params.contributorid];
-    res.send(`
-        <link rel="stylesheet" type="text/css" href="/css/app.css"/>
-        <h1>${contributor.title}</h1>
-        <h2>${contributor.name}</h2>
-        <img src="/images/contributors/${contributor.shortname}_tn.png" alt="Contributors" />
-        <p>${contributor.summary}</p>
-        <script src="/reload/reload.js"></script>
-    `);
+    let data = req.app.get('appData');
+    let pagePhotos = [];
+    let pageContributors = [];
+
+    data.contributors.forEach( (item) => {
+        if (item.shortname === req.params.contributorid) {
+            pageContributors.push(item);
+            pagePhotos = pagePhotos.concat(item.artwork);
+        }
+    });
+    
+    res.render('contributors', {
+        pageTitle: 'Contributors Info',
+        artwork: pagePhotos,
+        contributors: pageContributors,
+        pageID: 'contributorDetail'
+    });
 });
 
 module.exports = router;

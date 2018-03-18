@@ -108,30 +108,35 @@ header .navbar-inverse .navbar-nav>li>a {
   }
 }
 
-.speakerslist {
+.contributorslist {
   font-family: 'Roboto', sans-serif;
   font-size: 1.8rem;
   line-height: 160%;
 }
 
-#speakerList .speakerslist-img {
+#contributorList .contributorslist-img {
   margin-right: 20px;
 }
 
-.speakerslist-title {
+.contributorslist-title {
   font-size: 1.7em;
 }
 
-#home .speakerslist-title {
+#home .contributorslist-title {
   font-size: 1.5em;
 }
 
-#speakerDetail .speakerslist-title {
+#contributorDetail .contributorslist-title {
   font-size: 2.4em;
 }
 
-#speakerDetail .speakerslist-img {
+#contributorDetail .contributorslist-img {
   margin: 20px 0;
+}
+
+.contributorslist-img-detail {
+  /* height: 600px; */
+  width: 100%;
 }
 
 .form-control {
