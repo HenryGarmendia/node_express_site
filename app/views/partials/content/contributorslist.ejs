@@ -1,34 +1,34 @@
 <article class="contributorslist <% if (pageID === 'home') { %> jumbotron hidden-xs <% } %>">
-    <div class="container">
-        <div class="row">
-            <% contributors.forEach( (item) => { %>
-                <div class="<% if (pageID === 'home') { %> col-sm-4 text-center <% } else { %> col-sm-8 <% } %>">
-                    <h3 class="contributorslist-title"><%= item.title %></h3>
-                    <h5 class="contributorslist-name">with <a href="/contributors/<%= item.shortname %>"><%= item.name %></a></h5>
-                    <p class="contributorslist-info">
-                        <a href="/contributors/<%= item.shortname %>">
-                            <% if (pageID === 'home') { %>
-                                <img class="contributorslist-img img-circle" src="/images/contributors/<%= item.shortname %>_tn.png" alt="Photo of <%= item.name %>"></a>
-                            <% } %>
+	<div class="container">
+		<div class="row">
+			<% contributors.forEach( (item) => { %>
+				<div class="<% if (pageID === 'home') { %> col-sm-4 text-center <% } else { %> col-sm-8 <% } %>">
+					<h3 class="contributorslist-title"><%= item.title %></h3>
+					<h5 class="contributorslist-name">with <a href="/contributors/<%= item.shortname %>"><%= item.name %></a></h5>
+					<p class="contributorslist-info">
+						<a href="/contributors/<%= item.shortname %>">
+							<% if (pageID === 'home') { %>
+								<img class="contributorslist-img img-circle" src="/images/contributors/<%= item.shortname %>_tn.png" alt="Photo of <%= item.name %>"></a>
+							<% } %>
 
-                            <% if (pageID === 'contributorList') { %>
-                                <img class="contributorslist-img img-circle pull-left" src="/images/contributors/<%= item.shortname %>_tn.png" alt="Photo of <%= item.name %>"></a>
-                            <% } %>
-                            
-                            <% if (pageID === 'contributorDetail') { %>
-                                <img class="contributorslist-img contributorslist-img-detail img-responsive pull-left" src="/images/contributors/<%= item.shortname %>.png" alt="Photo of <%= item.name %>"></a>
-                            <% } %>
-                        </a>
-                        <% if (pageID !== 'home') { %>
-                            <% if (pageID == 'contributorList') { %>
-                                <%= item.summary %>
-                            <% } else {  %>
-                                <%- item.description %>
-                            <% } %>
-                        <% } %>
-                    </p>
-                </div>
-            <% }); %>
-        </div><!-- row -->
-    </div><!-- container -->
+							<% if (pageID === 'contributorList') { %>
+								<img class="contributorslist-img img-circle pull-left" src="/images/contributors/<%= item.shortname %>_tn.png" alt="Photo of <%= item.name %>"></a>
+							<% } %>
+							
+							<% if (pageID === 'contributorDetail') { %>
+								<img class="contributorslist-img contributorslist-img-detail img-responsive pull-left" src="/images/contributors/<%= item.shortname %>.png" alt="Photo of <%= item.name %>"></a>
+							<% } %>
+						</a>
+						<% if (pageID !== 'home') { %>
+							<% if (pageID == 'contributorList') { %>
+								<%= item.summary %>
+							<% } else {  %>
+								<%- item.description %>
+							<% } %>
+						<% } %>
+					</p>
+				</div>
+			<% }); %>
+		</div><!-- row -->
+	</div><!-- container -->
 </article>
