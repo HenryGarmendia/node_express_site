@@ -16,6 +16,7 @@ app.use(express.static('app/public'));
 app.use(require('./routes/index'));
 app.use(require('./routes/contributors'));
 app.use(require('./routes/feedback'));
+app.use(require('./routes/api'));
 
 let server = app.listen(app.set('port'), () => {
     console.log('Server is listening on port ' + app.get('port'));
