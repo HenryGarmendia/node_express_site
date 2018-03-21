@@ -21,5 +21,4 @@ function showMessage(data) {
    newMessage.className = 'bg-success chat-text';
    newMessage.innerHTML = '<strong>' + data.username + '</strong>: ' + data.message;
    chatDisplay.insertBefore(newMessage, chatDisplay.firstChild);
-   
 }
