@@ -8,13 +8,24 @@ $(() => {
       title: $('#feedback-form-title').val(),
       message: $('#feedback-form-message').val()
     }, updateFeedback);
-  });
+  }); // selecting the form
+
+  $('.feedback-messages').on('click', (e) => {
+    if (e.target.className = 'glyphicon glyphicon-remove') {
+      $.ajax({
+        url: 'api/' + e.target.id,
+        type: 'DELETE',
+        success: updateFeedback
+      }); // ajax
+    } // the target is a delete button
+  }); // feedback messages
 
   function updateFeedback(data) {
     let output = '';
     $.each(data, (key, item) => {
       output += '     <div class="feedback-item item-list media-list">';
       output += '       <div class="feedback-item media">';
+      output += '       <div class="media-left"><button class="feedback-delete btn btn-xs btn-danger"><span id="' + key + '" class="glyphicon glyphicon-remove"></span></button>';
       output += '         <div class="feedback-info media-body">';
       output += '           <div class="feedback-head">';
       output += '             <div class="feedback-title">' + item.title + ' <small class="feedback-name label label-info">' + item.name +'</small></div>';
@@ -25,5 +36,5 @@ $(() => {
       output += '     </div>';
     });
     $('.feedback-messages').html(output);
-  }
+  } // updateFeedback function
 });
