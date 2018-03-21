@@ -17,7 +17,7 @@ $(() => {
       output += '       <div class="feedback-item media">';
       output += '         <div class="feedback-info media-body">';
       output += '           <div class="feedback-head">';
-      output += '             <div class="feedback-title">' + item.title + '<small class="feedback-name label label-info"></small></div>';
+      output += '             <div class="feedback-title">' + item.title + ' <small class="feedback-name label label-info">' + item.name +'</small></div>';
       output += '           </div>';
       output += '           <div class="feedback-message">' + item.message + '</div>';
       output += '         </div>';
