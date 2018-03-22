@@ -1,8 +1,8 @@
-let express = require('express');
-let router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 router.get('/contributors', (req, res) => {
-    let data = req.app.get('appData');
+    const data = req.app.get('appData');
     let pagePhotos = [];
     let pageContributors = data.contributors;
 

@@ -1,8 +1,8 @@
-let express = require('express');
-let router = express.Router();
-let bodyParser = require('body-parser');
-let fs = require('fs');
-let feedbackData = require('../data/feedback.json');
+const express = require('express');
+const router = express.Router();
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const feedbackData = require('../data/feedback.json');
 
 router.get('/api', (req, res) => {    
    res.json(feedbackData);

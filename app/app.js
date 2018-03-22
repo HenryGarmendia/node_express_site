@@ -1,8 +1,8 @@
-let express = require('express');
-let reload = require('reload');
-let app = express();
-let dataFile = require('./data/data.json');
-let io = require('socket.io')();
+const express = require('express');
+const reload = require('reload');
+const app = express();
+const dataFile = require('./data/data.json');
+const io = require('socket.io')();
 
 // flexible application Node PORT
 app.set('port', process.env.PORT || 3000);
@@ -20,7 +20,7 @@ app.use(require('./routes/feedback'));
 app.use(require('./routes/api'));
 app.use(require('./routes/chat'));
 
-let server = app.listen(app.set('port'), () => {
+const server = app.listen(app.set('port'), () => {
     console.log('Server is listening on port ' + app.get('port'));
 });
 

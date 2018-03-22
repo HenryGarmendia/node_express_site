@@ -1,6 +1,6 @@
-let socket = io();
-let chatUsername = document.querySelector('#chat-username');
-let chatMessage = document.querySelector('#chat-message');
+const socket = io();
+const chatUsername = document.querySelector('#chat-username');
+const chatMessage = document.querySelector('#chat-message');
 
 socket.on('connect', () => {
    let chatForm = document.forms.chatForm;
@@ -22,14 +22,13 @@ socket.on('connect', () => {
 }); // socket
 
 function showMessage(data) {
-   let chatDisplay = document.querySelector('.chat-display');
-   let newMessage = document.createElement('p');
+   const chatDisplay = document.querySelector('.chat-display');
+   const newMessage = document.createElement('p');
    if (chatUsername.value === data.username) {
       newMessage.className = 'bg-success chat-text';
    } else {
       newMessage.className = 'bg-info text-warning chat-text';      
    }
-
    newMessage.innerHTML = '<strong>' + data.username + '</strong>: ' + data.message;
    chatDisplay.insertBefore(newMessage, chatDisplay.firstChild);
 } // showMessage
